@@ -19,15 +19,15 @@ void loop() // this part of the program is run over and over again,  unless INTE
     // Arduinos always need a loop function to run, but all the work is performed in the interrupt, which occurs when the sensor is activated rather than when the loop is iterated
 }
 
-void record() //this is the interrupt function, which is called everytime the voltage on pin 2 changes, regardless of the clock cycle
+void record() //this is the interrupt method, which is called everytime the voltage on pin 2 changes, regardless of the clock cycle
 { 
-    if(digitalRead(2) == HIGH)
+    if(digitalRead(2) == LOW) //if the voltage on pin 2 is low it will set the time the sensor is activated to current microseconds
     {
         
         timeActive = micros(); //set the variable timeActive to current microseconds 
         
     } 
-    else // If the voltage on pin 2 is low this will set the stop time and display the speed info
+    else // If the voltage on pin 2 is high this will set the stop time and display the speed info
     { 
         timeStop = micros();
         Serial.print("Start: ");
