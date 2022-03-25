@@ -16,7 +16,6 @@ const int inPin = 2; //number of the pin that is connected to sensor data
 const bool flip = false; //Change this value to true if your results are being recorded at the wrong times
 long timeActive,
      timeStop;
-float shutterSpeed;
 
 void setup()  
 { 
@@ -45,7 +44,7 @@ void record()
         Serial.println(timeStop);
         
         timeActive = timeStop - timeActive;
-        shutterSpeed = 1000000/(float)timeActive; // declare shutter speed, which is the inverse of the timeActive in seconds
+        float shutterSpeed = 1000000/(float)timeActive; // declare shutter speed, which is the inverse of the timeActive in seconds
         
         Serial.print("Microseconds: ");
         Serial.println(timeActive);
