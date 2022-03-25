@@ -6,7 +6,6 @@
 */
 long timeActive,
      timeStop;
-float shutterSpeed; //Variables are declared outside of the loop so the computer doesnt reallocate memory on every iteration
 
 void setup() //This part of the program is run exactly once on boot 
 { 
@@ -29,6 +28,7 @@ void record() //this is the interrupt method, which is called everytime the volt
     } 
     else // If the voltage on pin 2 is high this will set the stop time and display the speed info
     { 
+        float shutterSpeed;
         timeStop = micros();
         Serial.print("Start: ");
         Serial.println(timeActive); //display the time the sensor was activated, before timeActive is changed
